@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static string ShowColor(string username)
+        static string ShowColor(string username,int userage)
         {
             var color = Console.ReadLine();
             switch (color)
@@ -46,10 +46,10 @@
 
             var favcolors = new string[3];
 
-            Console.WriteLine($"{anketa.name}, Ваши 3 любимых цвета (англ): ");
+            Console.WriteLine($"{anketa.name},{anketa.age} лет,\n Напишите свой любимый цвет: ");
             for (int i = 0; i < favcolors.Length; i++)
             {
-                favcolors[i] = ShowColor(anketa.name);
+                favcolors[i] = ShowColor(anketa.name,anketa.age);
             }
             Console.WriteLine($"{anketa.name}, Ваши любимые цвета: ");
             foreach (var fav in favcolors)
