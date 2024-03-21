@@ -2,64 +2,68 @@
 {
     internal class Program
     {
-        static int[] SortArrayAsc(int[]arr)
+        static int[] SortArrayAsc(in int[] arr1)
         {
             int temp = 0;
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr1.Length; i++)
             {
-                for (int k=i+1;k<arr.Length;k++)
+                for (int k = i + 1; k < arr1.Length; k++)
                 {
-                    if (arr[i] > arr[k])
+                    if (arr1[i] > arr1[k])
                     {
-                        temp = arr[i];
-                        arr[i] = arr[k];
-                        arr[k] = temp;
+                        temp = arr1[i];
+                        arr1[i] = arr1[k];
+                        arr1[k] = temp;
                     }
                 }
             }
-            return arr;
+            return arr1;
         }
-        static int[] SortArrayDesc(int[]arr)
+        static int[] SortArrayDesc(in int[] arr2)
         {
             int temp = 0;
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr2.Length; i++)
             {
-                for (int k = i + 1; k < arr.Length; k++)
+                for (int k = i + 1; k < arr2.Length; k++)
                 {
-                    if (arr[i] < arr[k])
+                    if (arr2[i] < arr2[k])
                     {
-                        temp = arr[i];
-                        arr[i] = arr[k];
-                        arr[k] = temp;
+                        temp = arr2[i];
+                        arr2[i] = arr2[k];
+                        arr2[k] = temp;
                     }
                 }
             }
-            return arr;
+            return arr2;
         }
 
-        static void SortArray(in int[]arr,out int[]sortarrayask, out int[] sortarraydesk)
+        static void SortArray(in int[] arr, out int[] sortarrayask, out int[] sortarraydesk)
         {
-            sortarrayask=SortArrayAsc(arr);
-            sortarraydesk=SortArrayDesc(arr);
+            sortarrayask = SortArrayAsc(in arr);
             Console.WriteLine("По возрастанию:");
             ShowMassive(in sortarrayask);
+            Console.WriteLine();
+            sortarraydesk = SortArrayDesc(in arr);
             Console.WriteLine("По убыванию:");
             ShowMassive(in sortarraydesk);
+            Console.WriteLine();
+
         }
 
         static void ShowMassive(in int[] arr)
         {
-            foreach(var item in arr)
+            for(int i=0;i<arr.Length;i++)
             {
-                Console.Write($"{arr} ");
+                Console.Write($"{arr[i]} ");
             }
         }
         static void Main(string[] args)
         {
-            var array = new[] {24,6,8,0,-7,59,0,-99,24,56,95,-34};
+            var array = new[] {24,6,8};
             Console.WriteLine("Неотсортированный массив:");
             ShowMassive(in array);
-            SortArray(array,out array,out array);
+            Console.WriteLine();
+            SortArray(in array,out array,out array);
         }
     }
 }
