@@ -10,6 +10,7 @@
         {
             var arr = new[] {1,2,3 };
             Console.WriteLine(arr[0]);
+            
             BigDataOperation(arr);
             Console.WriteLine(arr[0]);
 
